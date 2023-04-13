@@ -21,6 +21,19 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
+  display: flex;
+  gap: 20px;
+}
+
+
+main {
+  padding: 30px 10px;
+  max-width: 700px;
+  margin: auto;
+}
+
+form input {
+  width: 100%;
 }
 
 form input,
@@ -50,7 +63,7 @@ form button:hover {
 }
 
 .todo-list {
-  min-width: 30%;
+  width: 100%;
   list-style: none;
 }
 
@@ -83,9 +96,7 @@ form button:hover {
   background: rgba(73, 204, 73, 0.897);
 }
 
-.todo-item {
-  padding: 0rem 0.5rem;
-}
+
 
 .fa-frash,
 .fa-check {
@@ -108,22 +119,32 @@ select {
   appearance: none;
   outline: none;
   border: none;
-}
-
-.select {
-  margin: 1rem;
-  position: relative;
-  overflow: hidden;
-}
-
-select {
   color: #ffa3fd;
   width: 10rem;
   cursor: pointer;
   padding: 1rem;
 }
 
-.select::after {
+
+
+.todos-add {
+  display: flex;
+}
+
+.todos-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.filter-todo-container {
+  position: relative;
+  overflow: hidden;
+  min-width: 160px;
+}
+
+.filter-todo-container::after {
   content: "\25BC";
   position: absolute;
   background: #ffa3fd;
@@ -134,9 +155,13 @@ select {
   transition: all 0.3s ease;
 }
 
-.select:hover::after {
+.filter-todo-container:hover::after {
   background: white;
   color: #ffa3fd;
+}
+
+.filter-todo {
+  height: 50px;
 }
 
 .delete-all {
@@ -151,9 +176,45 @@ select {
   cursor: pointer;
   font-size: 1rem;
   transition: all 0.3s ease;
+  height: 50px;
+  min-width: 160px;
 }
 
 .remove-todo:hover {
   background: white;
   color: rgba(73, 204, 73, 0.897);
+}
+
+.remove-todo span {
+  margin-right: 15px ;
+}
+
+/* For Medium Screens */
+
+@media screen and (max-width: 1000px) {
+  form {
+    flex-wrap: wrap;
+  }
+  .todo-container {
+    margin-top: 20px;
+  }
+}
+
+/* For Small Screens */
+
+@media screen and (max-width: 400px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  .todos-actions {
+    flex-wrap: wrap;
+  }
+ 
+
+  .filter-todo-container,
+  .filter-todo,
+  .remove-todo {
+    width: 100%;
+  }
 }
